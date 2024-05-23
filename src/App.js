@@ -1,25 +1,107 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, { Component } from "react";
+import { Navbar } from "./Components/Navbar";
+import NewsComp from "./Components/NewsComp";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+export default class App extends Component {
+  pgsz = 70;
+  render() {
+    return (
+      <div>
+        <Router>
+          <Navbar />
+          <div>
+            <Routes>
+              <Route
+                exact
+                path="/general"
+                element={
+                  <NewsComp
+                    key="general"
+                    pagesize={this.pgsz}
+                    country="in"
+                    category="general"
+                  />
+                }
+              ></Route>
+              <Route
+                exact
+                path="/sports"
+                element={
+                  <NewsComp
+                    key="sports"
+                    pagesize={this.pgsz}
+                    country="in"
+                    category="sports"
+                  />
+                }
+              ></Route>{" "}
+              <Route
+                exact
+                path="/entertainment"
+                element={
+                  <NewsComp
+                    key="entertainment"
+                    pagesize={this.pgsz}
+                    country="in"
+                    category="entertainment"
+                  />
+                }
+              ></Route>{" "}
+              <Route
+                exact
+                path="/science"
+                element={
+                  <NewsComp
+                    key="science"
+                    pagesize={this.pgsz}
+                    country="in"
+                    category="science"
+                  />
+                }
+              ></Route>{" "}
+              <Route
+                exact
+                path="/business"
+                element={
+                  <NewsComp
+                    key="business"
+                    pagesize={this.pgsz}
+                    country="in"
+                    category="business"
+                  />
+                }
+              ></Route>{" "}
+              <Route
+                exact
+                path="/health"
+                element={
+                  <NewsComp
+                    key="health"
+                    pagesize={this.pgsz}
+                    country="in"
+                    category="health"
+                  />
+                }
+              ></Route>{" "}
+              <Route
+                exact
+                path="/technology"
+                element={
+                  <NewsComp
+                    key="technology"
+                    pagesize={this.pgsz}
+                    country="in"
+                    category="technology"
+                  />
+                }
+              ></Route>
+            </Routes>
+          </div>
+        </Router>
+      </div>
+    );
+  }
 }
-
-export default App;
